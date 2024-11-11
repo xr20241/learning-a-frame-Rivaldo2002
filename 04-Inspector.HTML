@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pencahayaan</title>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <!-- tembok -->
+      <a-box
+        color="#444"
+        position="0 1.5 -5"
+        height="5"
+        width="15"
+        depth="0.2">
+      </a-box>
+
+      <a-box
+        color="#333"
+        position="0 -1 -1"
+        height="0.2"
+        width="15"
+        depth="10">
+      </a-box>
+
+      <a-box
+        color="#222"
+        position="-6.5 1.5 -5"
+        height="5"
+        width="0.2"
+        depth="10">
+      </a-box>
+      <!-- cahaya -->
+      <a-light
+        type="ambient"
+        intensity="0.2">
+      </a-light> <!-- cahaya sekitar -->
+
+      <a-light
+        type="directional"
+        position="5 1.5 -3"
+        intensity="1.0">
+      </a-light> <!-- cahaya berarah -->
+
+      <!-- balok -->
+      <a-box
+        id="box1"
+        color="#a00"
+        position="-2 1 -3">
+      </a-box> <!-- balok merah -->
+
+      <a-box
+        id="box2"
+        color="#aa0"
+        position="0 2.5 -3">
+      </a-box> <!-- balok kuning -->
+
+      <a-box
+        id="box3"
+        color="#0a0"
+        position="2 1 -3">
+      </a-box> <!-- balok hijau -->
+
+      <!-- additional entity -->
+      <a-entity
+        id="box4"
+        color="#a00"
+        position="0 0 -3"
+        scale="0.5 0.5 0.5"
+        material="color: #ff8c00"
+        geometry="primitive: sphere">
+      </a-entity>
+    </a-scene>
+  </body>
+</html>

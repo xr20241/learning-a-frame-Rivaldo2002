@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animasi</title>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+        <!-- tembok -->
+      <a-box
+      color="#444"
+      position="0 1.5 -5"
+      height="5"
+      width="15"
+      depth="0.2">
+    </a-box>
+
+    <a-box
+      color="#333"
+      position="0 -1 -1"
+      height="0.2"
+      width="15"
+      depth="10">
+    </a-box>
+
+    <a-box
+      color="#222"
+      position="-6.5 1.5 -5"
+      height="5"
+      width="0.2"
+      depth="10">
+    </a-box>
+      <!-- balok -->
+      <a-box
+        id="box1"
+        color="#a00"
+        position="-2 1 -3"
+        animation__translasi="
+          property: position;
+          from: -2 4 -3;
+          to: -2 1 -3;
+          dur: 2000;
+          loop: true;
+          dir: alternate;
+          easing: easeOutCubic;"
+        animation__rotasi="
+          property: rotation;
+          from: 0 0 0;
+          to: 0 180 0;
+          dur: 2000;
+          loop: true;
+          dir: alternate;
+          easing: easeInCubic;"
+        animation__skalasi="
+          property: scale;
+          to: 0.5 0.5 0.5;
+          dur: 2000;
+          loop: true;
+          dir: alternate;">
+      </a-box> <!-- balok merah -->
+
+      <a-box
+        id="box2"
+        color="#aa0"
+        position="0 1.5 -3">
+      </a-box> <!-- balok kuning -->
+
+      <a-box
+        id="box3"
+        color="#0a0"
+        position="2 1 -3">
+      </a-box> <!-- balok hijau -->
+    </a-scene>
+  </body>
+</html>
