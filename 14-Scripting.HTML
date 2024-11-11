@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scripting</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+  </head>
+  <body>
+    <script>
+      AFRAME.registerComponent('foo', {
+        schema: {
+          message1: { type: 'string', default: 'Foo' },
+          message2: { type: 'string', default: 'Holla' }
+        },
+        init: function () {
+          console.log("%cHello " + this.data.message1 + " | " + this.data.message2, "font-size:2em");
+          
+          let data = this.data;
+
+          this.el.addEventListener('click', function (ev) {
+            let clickedData = ev.srcElement.getAttribute('position');
+            console.log(clickedData);
+
+            ev.srcElement.setAttribute(
+              'position',
+              clickedData.x + ' ' + (clickedData.y + 0.5) + ' ' + clickedData.z
+            );
+          });
+        }
+      });
+    </script>
+    <a-scene>
+      <a-box
+        foo
+        id="box1"
+        material="color: red"
+        position="-2 1.5 -3">
+      </a-box>
+
+      <a-box
+        foo="message1: Box, message2: Adios"
+        id="box2"
+        material="color: green; wireframe: true"
+        position="2 1.5 -3">
+      </a-box>
+    </a-scene>
+  </body>
+</html>

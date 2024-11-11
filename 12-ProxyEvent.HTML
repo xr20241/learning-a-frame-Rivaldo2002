@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy Event</title>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-proxy-event-component/dist/aframe-proxy-event-component.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-camera>
+        <a-cursor></a-cursor>
+      </a-camera>
+
+      <a-entity
+      geometry="primitive: triangle"
+      text="align: center; baseline: top; value: ATAS; wrapCount: 15;"
+      position="-2 2.5 -3"
+      material="color: blue"
+      proxy-event="
+        event: click;
+        as: atas;
+        to: #box">
+      </a-entity>
+      <a-entity
+        text="align: center; baseline: bottom; value: BAWAH; wrapCount: 15;"
+        position="-2 1 -3"
+      >
+        <a-entity
+            geometry="primitive: triangle"
+            material="color: blue"
+            rotation="0 0 180"
+            proxy-event="
+            event: click;
+            as: bawah;
+            to: #box">
+      </a-entity>
+      </a-entity>
+      <a-box
+        id="box"
+        color="#aa0"
+        position="1 1.5 -3"
+        animation__keatas="
+          property: position;
+          to: 1 2.5 -3
+          starEvents: atas
+        "
+        animation__kebawah="
+          property: position;
+          to: 1 0.5 -3
+          starEvents: bawah
+        "
+        animation__kewalal="
+          property: position;
+          to: 1 1.5 -3
+          starEvents: awal
+        "
+      ></a-box>
+    </a-scene>
+  </body>
+</html>

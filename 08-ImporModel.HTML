@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impor Model 3D (gLTF)</title>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <!-- Asset Management -->
+      <a-assets>
+        <a-asset-item
+          id="lebah"
+          src="model/lebah/scene.gltf">
+        </a-asset-item>
+      </a-assets>
+
+      <!-- Model with animation -->
+      <a-entity
+        gltf-model="#lebah"
+        position="0 2 -5"
+        animation-mixer="clip: All Animations; loop: pingpong; timeScale: 2">
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
